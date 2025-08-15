@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using Newtonsoft.Json;
+using Soenneker.Attributes.PublicOpenApiObject;
 using Soenneker.Enums.SortDirections;
 
 namespace Soenneker.Dtos.Options.OrderBy;
@@ -7,6 +8,7 @@ namespace Soenneker.Dtos.Options.OrderBy;
 /// <summary>
 /// An object for ordering during querying
 /// </summary>
+[PublicOpenApiObject]
 public sealed class OrderByOption
 {
     [JsonPropertyName("field")]
