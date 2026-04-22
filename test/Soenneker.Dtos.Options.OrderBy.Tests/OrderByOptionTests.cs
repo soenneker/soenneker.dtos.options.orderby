@@ -1,11 +1,10 @@
-﻿using Soenneker.Tests.Unit;
-using Xunit;
+using Soenneker.Tests.Unit;
 
 namespace Soenneker.Dtos.Options.OrderBy.Tests;
 
 public sealed class OrderByOptionTests : UnitTest
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
