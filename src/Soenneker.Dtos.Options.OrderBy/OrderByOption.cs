@@ -11,10 +11,16 @@ namespace Soenneker.Dtos.Options.OrderBy;
 [PublicOpenApiObject]
 public sealed class OrderByOption
 {
+    /// <summary>
+    /// The field to sort by.
+    /// </summary>
     [JsonPropertyName("field")]
     [JsonProperty("field")]
     public string Field { get; set; } = null!;
 
+    /// <summary>
+    /// The direction to sort the field by.
+    /// </summary>
     [JsonPropertyName("direction")]
     [JsonProperty("direction")]
     public SortDirection? Direction { get; set; }
