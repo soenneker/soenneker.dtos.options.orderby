@@ -6,20 +6,20 @@ using Soenneker.Enums.SortDirections;
 namespace Soenneker.Dtos.Options.OrderBy;
 
 /// <summary>
-/// An object for ordering during querying
+/// Defines one field and direction used to order an API query result set.
 /// </summary>
 [PublicOpenApiObject]
 public sealed class OrderByOption
 {
     /// <summary>
-    /// The field to sort by.
+    /// Serializable field name used for sorting; supported names are determined by the queried resource.
     /// </summary>
     [JsonPropertyName("field")]
     [JsonProperty("field")]
     public string Field { get; set; } = null!;
 
     /// <summary>
-    /// The direction to sort the field by.
+    /// Sort direction for the field; when omitted, the API applies its documented default direction.
     /// </summary>
     [JsonPropertyName("direction")]
     [JsonProperty("direction")]
