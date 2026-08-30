@@ -16,7 +16,7 @@ public sealed class OrderByOption
     /// </summary>
     [JsonPropertyName("field")]
     [JsonProperty("field")]
-    public string Field { get; set; } = null!;
+    public required string Field { get; set; }
 
     /// <summary>
     /// Sort direction for the field; when omitted, the API applies its documented default direction.

@@ -5,7 +5,7 @@
 
 # Soenneker.Dtos.Options.OrderBy
 
-Defines one field and direction used to order an API query result set.
+A transport model for expressing a single sort field and optional direction in an API request.
 
 ## Install
 
@@ -13,13 +13,19 @@ Defines one field and direction used to order an API query result set.
 dotnet add package Soenneker.Dtos.Options.OrderBy
 ```
 
-## What you get
+## Usage
 
-- `OrderByOption` — Defines one field and direction used to order an API query result set.
+```csharp
+using Soenneker.Dtos.Options.OrderBy;
+using Soenneker.Enums.SortDirections;
 
-## API at a glance
+var orderBy = new OrderByOption
+{
+    Field = "createdAt",
+    Direction = SortDirection.Desc
+};
+```
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `OrderByOption.Field` | Serializable field name used for sorting; supported names are determined by the queried resource. | Serializable field name used for sorting; supported names are determined by the queried resource. |
-| `OrderByOption.Direction` | Sort direction for the field; when omitted, the API applies its documented default direction. | Sort direction for the field; when omitted, the API applies its documented default direction. |
+The JSON property names are `field` and `direction` with both `System.Text.Json` and Newtonsoft.Json. `Field` is required during object initialization. `Direction` accepts `SortDirection.Asc`, `SortDirection.Desc`, or `null` when the receiving API should choose its default.
+
+This DTO does not verify that a field is sortable. If `Field` comes from an untrusted request, map it through an allow-list before using it to build SQL, expressions, or provider-specific query text; do not pass the string directly into a query engine.
