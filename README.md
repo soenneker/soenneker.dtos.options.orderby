@@ -26,6 +26,6 @@ var orderBy = new OrderByOption
 };
 ```
 
-The JSON property names are `field` and `direction` with both `System.Text.Json` and Newtonsoft.Json. `Field` is required during object initialization. `Direction` accepts `SortDirection.Asc`, `SortDirection.Desc`, or `null` when the receiving API should choose its default.
+The JSON property names are `field` and `direction` with `System.Text.Json`. `Field` is required during object initialization. `Direction` accepts `SortDirection.Asc`, `SortDirection.Desc`, or `null` when the receiving API should choose its default.
 
 This DTO does not verify that a field is sortable. If `Field` comes from an untrusted request, map it through an allow-list before using it to build SQL, expressions, or provider-specific query text; do not pass the string directly into a query engine.
